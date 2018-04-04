@@ -1,0 +1,58 @@
+.wrapper {
+    margin: auto;
+    max-width: 800px;
+    border: 2px solid;
+    border-radius: 25px;
+}
+
+.wrapper h1 {
+    text-align: center;    
+}
+
+.wrapper h2 {
+    text-align: center;
+}
+
+.wrapper #weapons {
+    text-align: center;
+}
+
+.wrapper #scoreBoard {
+    text-align: center;
+}
+
+.wrapper #resultDisplay {
+    text-align: center;
+}
+
+#weapons div {
+    display: inline-block;
+    height: 300px;
+    width: 33%;
+}
+
+#weapons img {
+    height: 250px;
+    width: auto;
+}
+
+#r {
+
+}
+
+#p {
+
+}
+
+#s {
+    
+}
+
+#scoreBoard p {
+    display: inline-block;
+}
+
+#resultDisplay {
+    height: 150px;
+    overflow: auto;
+}
