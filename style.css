@@ -25,27 +25,40 @@
     text-align: center;
 }
 
+#weapons {
+    max-width: 800px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 #weapons div {
     display: inline-block;
-    height: 300px;
-    width: 33%;
+    height: auto;
+    max-width: 27%;
 }
 
 #weapons img {
-    height: 250px;
+    height: auto;
     width: auto;
+    max-width: 80%;
 }
 
-#r {
-
+#weapons img:hover {
+    cursor: pointer;
 }
 
-#p {
-
+#r img {
+    padding-top: 20px;
+    padding-left: 30px;
 }
 
-#s {
-    
+/*#p {
+
+}*/
+
+#s img{
+    padding-top: 20px;
+    padding-right: 30px;
 }
 
 #scoreBoard p {
