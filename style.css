@@ -69,3 +69,11 @@
     height: 150px;
     overflow: auto;
 }
+
+#resultDisplay .tableHeading {
+    display: inline-block;
+}
+
+#resultDisplay .tableContent {
+    display: inline-block;
+}
