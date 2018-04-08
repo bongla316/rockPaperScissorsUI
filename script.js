@@ -81,30 +81,44 @@ function displayResult(playerChoice, computerChoice, winner) {
         
 
         //Player Div
-        var nodeDivP = document.createElement("div");
-        nodeDivP.setAttribute("class", "tableContent");
-        document.getElementById("playerRoundChoice").appendChild(nodeDivP);
+        //var nodeDivP = document.createElement("td");
+        //nodeDivP.setAttribute("class", "tableContent");
+        //document.getElementById("playerRoundChoice").appendChild(nodeDivP);
 
         //Player Image
-        var nodeImgP = document.createElement("img");
-        nodeImgP.setAttribute("src", );
-        document.getElementById()
+        //var nodeImgP = document.createElement("img");
+        //nodeImgP.setAttribute("src", );
+        //document.getElementById()
 
         //Computer Div
-        var nodeDivC = document.createElement("div");
-        nodeDivC.setAttribute("class", "tableContent");
-        document.getElementById("computerRoundChoice").appendChild(nodeDivC);
+        //var nodeDivC = document.createElement("td");
+        //nodeDivC.setAttribute("class", "tableContent");
+        //document.getElementById("computerRoundChoice").appendChild(nodeDivC);
 
 
 
 
-        var nodePlayer = document.createElement("img");
-        nodePlayer.setAttribute("src", "images/Scissors.png");
-        document.getElementById("playerRoundChoice").appendChild(nodePlayer);
+        var nodetr = document.createElement("tr");
+
+        var nodePlayertd = document.createElement("td");
+        var imgNodeP = document.createElement("img");
+        imgNodeP.setAttribute("src", "images/Rock.png");
+        nodePlayertd.appendChild(imgNodeP);
+        nodetr.appendChild(nodePlayertd);
+        document.getElementById("tableContent").appendChild(nodetr);
+
+        var nodetd = document.createElement("td");
+        nodetr.appendChild(nodetd);
+        document.getElementById("tableContent").appendChild(nodetr);
+
+        var nodeComptd = document.createElement("td");
+        var imgNodeC = document.createElement("img");
+        imgNodeC.setAttribute("src", "images/Scissors.png");
+        nodeComptd.appendChild(imgNodeC);
+        nodetr.appendChild(nodeComptd);
+        document.getElementById("tableContent").appendChild(nodetr);
+                
         playerScore += 1;
-
-        
-
         updateScoreboard(computerScore, playerScore);
         winnerCheck(computerScore, playerScore);
 
