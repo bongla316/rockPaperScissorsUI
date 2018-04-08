@@ -15,7 +15,7 @@
 
         <div id="weapons">
             <div id="r"><img src="images/Rock.png" alt="Rock"></div>
-            <div id="p"><img src="images/Paper.png" alt="Paper"></div>
+            <div id="p"><img src="images/Rock.png" alt="Rock"></div>
             <div id="s"><img src="images/Scissors.png" alt="Scissors"></div>
         </div>
 
@@ -26,17 +26,28 @@
         </div>
 
         <div id="resultDisplay">
-            <div>
-                <div class="tableHeading">Player Choice</div>
-                <div class="tableHeading">Winner Of Round</div>
-                <div class="tableHeading"> Computer Choice</div>
-            </div>
-            
-            <div>
-                <div id="playerRoundChoice" class="tableContent"></div>
-                <div id="winnerOfRound" class="tableContent"></div>
-                <div id="computerRoundChoice" class="tableContent"></div>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player Choice</th>
+                        <th>Winner of Round</th>
+                        <th>Computer Choice</th>
+                   </tr>
+                </thead>
+                
+                <tbody id="tableContent">
+                    <tr>
+                        <td><img src="images/Rock.png" alt="Rock"></td>
+                        <td></td>
+                        <td><img src="images/Rock.png" alt="Rock"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/Rock.png" alt="Rock"></td>
+                        <td></td>
+                        <td><img src="images/Rock.png" alt="Rock"></td>
+                    </tr>
+                </tbody>
+            </table>
         
         </div>
 
