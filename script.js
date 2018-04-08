@@ -78,13 +78,32 @@ function displayResult(playerChoice, computerChoice, winner) {
     }
 
     else if (winner == 1) {
-        var result = playerChoice + " beats " + computerChoice + "! Player wins!";
-        var node = document.createElement("p");
-        var textNode = document.createTextNode(result);
-        node.appendChild(textNode);
+        
 
-        document.getElementById("resultDisplay").appendChild(node);
+        //Player Div
+        var nodeDivP = document.createElement("div");
+        nodeDivP.setAttribute("class", "tableContent");
+        document.getElementById("playerRoundChoice").appendChild(nodeDivP);
+
+        //Player Image
+        var nodeImgP = document.createElement("img");
+        nodeImgP.setAttribute("src", );
+        document.getElementById()
+
+        //Computer Div
+        var nodeDivC = document.createElement("div");
+        nodeDivC.setAttribute("class", "tableContent");
+        document.getElementById("computerRoundChoice").appendChild(nodeDivC);
+
+
+
+
+        var nodePlayer = document.createElement("img");
+        nodePlayer.setAttribute("src", "images/Scissors.png");
+        document.getElementById("playerRoundChoice").appendChild(nodePlayer);
         playerScore += 1;
+
+        
 
         updateScoreboard(computerScore, playerScore);
         winnerCheck(computerScore, playerScore);
