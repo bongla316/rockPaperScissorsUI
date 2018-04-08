@@ -65,15 +65,37 @@
     display: inline-block;
 }
 
-#resultDisplay {
+
+#resultDisplay{
+    height: 200px;
+}
+
+#resultDisplay th {
+    position: relative;
+}
+
+#resultDisplay tbody {
     height: 150px;
-    overflow: auto;
+    overflow: auto;    
 }
 
-#resultDisplay .tableHeading {
-    display: inline-block;
+#resultDisplay img{
+    display: block;
+    height: auto;
+    max-width: 26%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#resultDisplay .tableContent {
+
+/*#resultDisplay .tableContent div{
     display: inline-block;
+    height: auto;
+    max-width: 27%;
 }
+
+#resultDisplay .tableContent img {
+    height: auto;
+    width: auto;
+    max-width: 80%;
+}*/
