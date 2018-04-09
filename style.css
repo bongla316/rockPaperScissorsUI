@@ -1,27 +1,27 @@
-.wrapper {
+#wrapper {
     margin: auto;
     max-width: 800px;
     border: 2px solid;
     border-radius: 25px;
 }
 
-.wrapper h1 {
+#wrapper h1 {
     text-align: center;    
 }
 
-.wrapper h2 {
+#wrapper h2 {
     text-align: center;
 }
 
-.wrapper #weapons {
+#wrapper #weapons {
     text-align: center;
 }
 
-.wrapper #scoreBoard {
+#wrapper #scoreBoard {
     text-align: center;
 }
 
-.wrapper #resultDisplay {
+#wrapper #resultDisplay {
     text-align: center;
 }
 

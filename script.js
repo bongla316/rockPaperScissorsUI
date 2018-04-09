@@ -8,7 +8,7 @@ var currentRound = 0;
 var RPSButtons = document.getElementById("weapons").innerHTML;
 var initialScoreboardState = document.getElementById("scoreBoard").innerHTML;
 var initialInstructions = document.getElementById("instructions").innerHTML;
-
+var resetPage = document.getElementById("wrapper").innerHTML;
 
 function playerRock() {
     playRound("ROCK");
@@ -69,51 +69,51 @@ function displayResult(playerChoice, computerChoice, winner) {
 
     if (winner == 0) {
 
-        var result = "The round was a draw";
-        var node = document.createElement("p");
-        var textNode = document.createTextNode(result);
-        node.appendChild(textNode);
+        var imgNodeP = document.createElement("img");
+        imgNodeP.setAttribute("src", getImgSourceP(playerChoice));
+        var nodetr = document.createElement("tr");
+        var nodePlayertd = document.createElement("td");
+        nodePlayertd.appendChild(imgNodeP);
+        nodetr.appendChild(nodePlayertd);
+        document.getElementById("tableContent").appendChild(nodetr);
+        
+        var imgNodeR = document.createElement("img");
+        imgNodeR.setAttribute("src", "images/neutral.png");
+        var nodetd = document.createElement("td");
+        nodetd.appendChild(imgNodeR);
+        nodetr.appendChild(nodetd);
+        document.getElementById("tableContent").appendChild(nodetr);
+
+        var imgNodeC = document.createElement("img");
+        imgNodeC.setAttribute("src", getImgSourceC(computerChoice));
+        var nodeComptd = document.createElement("td");
+        nodeComptd.appendChild(imgNodeC);
+        nodetr.appendChild(nodeComptd);
+        document.getElementById("tableContent").appendChild(nodetr);
 
         document.getElementById("resultDisplay").appendChild(node);
     }
 
     else if (winner == 1) {
         
-
-        //Player Div
-        //var nodeDivP = document.createElement("td");
-        //nodeDivP.setAttribute("class", "tableContent");
-        //document.getElementById("playerRoundChoice").appendChild(nodeDivP);
-
-        //Player Image
-        //var nodeImgP = document.createElement("img");
-        //nodeImgP.setAttribute("src", );
-        //document.getElementById()
-
-        //Computer Div
-        //var nodeDivC = document.createElement("td");
-        //nodeDivC.setAttribute("class", "tableContent");
-        //document.getElementById("computerRoundChoice").appendChild(nodeDivC);
-
-
-
-
-        var nodetr = document.createElement("tr");
-
-        var nodePlayertd = document.createElement("td");
         var imgNodeP = document.createElement("img");
-        imgNodeP.setAttribute("src", "images/Rock.png");
+        imgNodeP.setAttribute("src", getImgSourceP(playerChoice));
+        var nodetr = document.createElement("tr");
+        var nodePlayertd = document.createElement("td");
         nodePlayertd.appendChild(imgNodeP);
         nodetr.appendChild(nodePlayertd);
         document.getElementById("tableContent").appendChild(nodetr);
-
+        
+        var imgNodeR = document.createElement("img");
+        imgNodeR.setAttribute("src", "images/winner.png");
         var nodetd = document.createElement("td");
+        nodetd.appendChild(imgNodeR);
         nodetr.appendChild(nodetd);
         document.getElementById("tableContent").appendChild(nodetr);
 
-        var nodeComptd = document.createElement("td");
         var imgNodeC = document.createElement("img");
-        imgNodeC.setAttribute("src", "images/Scissors.png");
+        imgNodeC.setAttribute("src", getImgSourceC(computerChoice));
+        var nodeComptd = document.createElement("td");
         nodeComptd.appendChild(imgNodeC);
         nodetr.appendChild(nodeComptd);
         document.getElementById("tableContent").appendChild(nodetr);
@@ -125,12 +125,29 @@ function displayResult(playerChoice, computerChoice, winner) {
     }
 
     else if (winner == 2) {
-        var result = computerChoice + " beats " + playerChoice + "! Computer wins!";
-        var node = document.createElement("p");
-        var textNode = document.createTextNode(result);
-        node.appendChild(textNode);
+        var nodetr = document.createElement("tr");
 
-        document.getElementById("resultDisplay").appendChild(node);
+        var imgNodeP = document.createElement("img");
+        imgNodeP.setAttribute("src", getImgSourceP(playerChoice));
+        var nodePlayertd = document.createElement("td");
+        nodePlayertd.appendChild(imgNodeP);
+        nodetr.appendChild(nodePlayertd);
+        document.getElementById("tableContent").appendChild(nodetr);
+        
+        var imgNodeR = document.createElement("img");
+        imgNodeR.setAttribute("src", "images/loser.png");
+        var nodetd = document.createElement("td");
+        nodetd.appendChild(imgNodeR);
+        nodetr.appendChild(nodetd);
+        document.getElementById("tableContent").appendChild(nodetr);
+
+        var imgNodeC = document.createElement("img");
+        imgNodeC.setAttribute("src", getImgSourceC(computerChoice));
+        var nodeComptd = document.createElement("td");
+        nodeComptd.appendChild(imgNodeC);
+        nodetr.appendChild(nodeComptd);
+        document.getElementById("tableContent").appendChild(nodetr);
+
         computerScore += 1;
 
         updateScoreboard(computerScore, playerScore);
@@ -138,14 +155,42 @@ function displayResult(playerChoice, computerChoice, winner) {
     }
 }
 
+function getImgSourceP(playerChoice) {
+    if (playerChoice == "ROCK") {
+        return "images/Rock.png"
+    }
+
+    else if (playerChoice == "PAPER") {
+        return "images/Paper.png"
+    }
+
+    else if (playerChoice == "SCISSORS") {
+        return "images/Scissors.png"
+    }
+}
+
+function getImgSourceC(computerChoice) {
+    if (computerChoice == "ROCK") {
+        return "images/Rock.png"
+    }
+
+    else if (computerChoice == "PAPER") {
+        return "images/Paper.png"
+    }
+
+    else if (computerChoice == "SCISSORS") {
+        return "images/Scissors.png"
+    }
+}
+
 function winnerCheck(cScore, pScore) {
     if (cScore == 5) {
-        document.getElementById("instructions").innerHTML = "Computer wins the match!";
+        document.getElementById("instructions").innerHTML = "Computer wins the match...Press restart to get revenge!";
         addRestartButton();
     }
 
     if (pScore == 5) {
-        document.getElementById("instructions").innerHTML = "Player wins the match!";
+        document.getElementById("instructions").innerHTML = "Player wins the match! Press restart to play again.";
         addRestartButton();
     }
 
@@ -177,26 +222,9 @@ function clearDiv(divID) {
     }
 }
 
-function addRPSButtons() {
-    clearDiv("weapons");
-    document.getElementById("weapons").innerHTML = RPSButtons;
-}
-
-function addNewScoreboard() {
-    clearDiv("scoreBoard");
-    document.getElementById("scoreBoard").innerHTML = initialScoreboardState;
-}
-
-function addInstructions(){
-    clearDiv("instructions");
-    document.getElementById("instructions").innerHTML = initialInstructions;
-}
-
 function reset() {
-    clearDiv("resultDisplay");
-    addInstructions();
-    addRPSButtons();
-    addNewScoreboard();
+    clearDiv("wrapper");
+    document.getElementById("wrapper").innerHTML = resetPage;
     computerScore = 0;
     playerScore = 0;
     document.querySelector("#r").addEventListener("click", playerRock);
