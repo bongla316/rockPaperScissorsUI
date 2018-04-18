@@ -5,9 +5,6 @@ document.querySelector("#s").addEventListener("click", playerScissors);
 var computerScore = 0;
 var playerScore = 0;
 var currentRound = 0;
-var RPSButtons = document.getElementById("weapons").innerHTML;
-var initialScoreboardState = document.getElementById("scoreBoard").innerHTML;
-var initialInstructions = document.getElementById("instructions").innerHTML;
 var resetPage = document.getElementById("wrapper").innerHTML;
 
 function playerRock() {
@@ -207,12 +204,22 @@ function updateScoreboard(cScore, pScore) {
 function addRestartButton() {
 
     document.getElementById("weapons").innerHTML = '';
-    var node = document.createElement("button");
+    
+    var restartDiv = document.createElement("div");
+    var restartNode = document.createElement("img");
+    restartNode.setAttribute("src", "images/restart.png");
+    restartNode.id = "restartButton";
+    restartDiv.appendChild(restartNode);
+    document.getElementById("weapons").appendChild(restartDiv);
+    document.getElementById("restartButton").style.paddingTop = "20px";
+    document.querySelector("#restartButton").addEventListener("click", reset);
+
+    /*var node = document.createElement("button");
     var textNode = document.createTextNode("Restart Match");
     node.id = "restartButton";
     node.appendChild(textNode);
     document.getElementById("weapons").appendChild(node);
-    document.querySelector("#restartButton").addEventListener("click", reset);
+    document.querySelector("#restartButton").addEventListener("click", reset);*/
 }
 
 function clearDiv(divID) {
